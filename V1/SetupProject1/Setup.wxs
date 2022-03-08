@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="{AE581993-EA96-4632-A0F8-2D3B7DBB86E8}" Codepage="1252" Language="1031" 
+             Manufacturer="Andreas Kerl" Name="Native Notepad 1.0" UpgradeCode="{30F18E7F-D3A8-4B41-B120-79010859477A}" 
+             Version="1.00.0000">
+        <Package Comments="This installer database contains the logic and data required to install Native Notepad 1.0" Compressed="yes" 
+                 Description="NativeNotepadDemo" InstallerVersion="200" Languages="1031" Manufacturer="Andreas Kerl" Platform="x64" />
+        
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFiles64Folder">
+                <Directory Id="INSTALLLOCATION" Name="NativeNotepad">
+                    <Component Id="C__NativeNotepad.exe" Guid="{CB2AF005-1CE6-4AA8-9924-829E4722E397}">
+                        <File Id="F__NativeNotepad.exe" Name="NativeNotepad.exe" KeyPath="yes" Assembly=".net" AssemblyManifest="F__NativeNotepad.exe" AssemblyApplication="F__NativeNotepad.exe" DiskId="1" Source="$(var.NativeNotepad.TargetPath)" />
+                        <Shortcut Id="S__NativeNotepad.exe" Directory="ProgramMenuFolder" Name="Native Notepad 1.0" Hotkey="0" Icon="I__Icon.exe" IconIndex="0" Show="normal" Advertise="yes" />
+                    </Component>
+                    <Component Id="C__Readme.txt" Guid="{5BD78504-1CD1-4460-A809-BB3EB272F99C}">
+                        <File Id="F__Readme.txt" Name="Readme.txt" KeyPath="yes" DiskId="1" Source=".\Ressources\Readme.txt" />
+                    </Component>
+            </Directory>
+            </Directory>
+            <Directory Id="ProgramMenuFolder" />
+            <Directory Id="DesktopFolder" />
+        </Directory>
+        
+      <Feature Id="Application" Level="1" Title="Anwendung">
+            <ComponentRef Id="C__NativeNotepad.exe" Primary="yes" />
+            <ComponentRef Id="C__Readme.txt" Primary="yes" />
+        </Feature>
+      
+      <Icon Id="I__Icon.exe" SourceFile="$(var.NativeNotepad.ProjectDir)App.ico" />
+      
+      <Media Id="1" Cabinet="Data.cab" EmbedCab="yes" />
+      
+      <Property Id="LicenseAccepted" Value="1" />
+      <Property Id="ARPPRODUCTICON" Value="I__Icon.exe" />
+
+      <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+      <UIRef Id="WixUI_InstallDir" />
+
+      <WixVariable Id="WixUIBannerBmp" Value=".\Ressources\WixUI_Bmp_Banner.jpg" />
+      <WixVariable Id="WixUIDialogBmp" Value=".\Ressources\WixUI_Bmp_Dialog.jpg" />
+
+    </Product>
+</Wix>
