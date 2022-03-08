@@ -1,0 +1,28 @@
+Speichern unter Programme
+
+		 xmlns:desktop6="http://schemas.microsoft.com/appx/manifest/desktop/windows10/6"
+		 xmlns:desktop8="http://schemas.microsoft.com/appx/manifest/desktop/windows10/8"
+		 IgnorableNamespaces="uap mp rescap desktop6 desktop8">
+
+
+	<Dependencies>
+		<TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+		<TargetDeviceF
+
+
+Desktop8 Extension anfügen
+
+	<Extensions>
+		<desktop8:Extension Category="windows.mutablePackageDirectories">
+			<desktop8:MutablePackageDirectories>
+				<desktop8:MutablePackageDirectory Target="$(package.volumeroot)\Program Files\Native Notepad" Shared="true" />
+			</desktop8:MutablePackageDirectories>
+		</desktop8:Extension>
+	</Extensions>
+
+
+Installation mit 
+ProvisionPackageForAllUsersAsync des PackageManagers
+
+oder
+

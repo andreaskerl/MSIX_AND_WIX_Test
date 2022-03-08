@@ -1,0 +1,14 @@
+Hilfe zur Native Notepad App
+----------------------------
+
+Mit Hilfe von Richtlinien kann die Anzeige diverser Menüpunkte deaktiviert werden. Die Richtlinien-Einstellungen werden über den folgenden Registrierungsschlüssel aktiviert:
+
+HKEY_LOCAL_MACHINE\Software\NativeNotepad\Policies
+
+Es sind Einträge vom Typ REG_DWORD zu erstellen und für eine Deaktivierung ist der Wert auf "1" festzulegen. Die folgenden Bezeichnungen sind zu verwenden:
+
+Drucken: DeactivatePrinting
+Speichern unter: DeactivateSaveAs
+Schriftart: DeactivateCutomFont
+Auf Update prüfen: DeactivateAutoUpdate
+
